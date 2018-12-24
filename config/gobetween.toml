@@ -17,7 +17,7 @@ output = "stdout" # "stdout" | "stderr" | "/path/to/gobetween.log"
 # Pprof profiler configuration
 #
 [profiler]
-enabled = false # false | true
+enabled = true # false | true
 bind = ":6060"  # "host:port"
 
 #
@@ -84,16 +84,12 @@ bind = "0.0.0.0:3000"
 [servers.udpsample]
 bind = "localhost:4000"
 protocol = "udp"
-
-  [servers.udpsample.udp]
-  max_responses = 1
+client_idle_timeout = "5s"
 
   [servers.udpsample.discovery]
   kind = "static"
   static_list = [
-      "8.8.8.8:53",
-      "8.8.4.4:53",
-      "91.239.100.100:53"
+      "localhost:5555",
   ]
 
 #
